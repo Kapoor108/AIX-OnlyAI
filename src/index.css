@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(180, 210, 255, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+  --soft-shadow: 0 2px 16px 0 rgba(80, 120, 200, 0.10);
+  --tooltip-bg: #fff;
+  --tooltip-border: #e0e7ef;
+  --tooltip-text: #222;
+  --transition: background 0.3s, color 0.3s;
+}
+
+.dark {
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(51, 65, 85, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.25);
+  --soft-shadow: 0 2px 16px 0 rgba(30, 41, 59, 0.18);
+  --tooltip-bg: #1e293b;
+  --tooltip-border: #334155;
+  --tooltip-text: #f1f5f9;
+}
+
+body, html {
+  background: var(--glass-bg);
+  color: #1e293b;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  transition: var(--transition);
+}
+
+.dark body, .dark html {
+  color: #f1f5f9;
+  background: var(--glass-bg);
+}
+
+.glass {
+  background: var(--glass-bg) !important;
+  border: 1.5px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  transition: var(--transition);
+}
+
+.soft-shadow {
+  box-shadow: var(--soft-shadow) !important;
+  transition: var(--transition);
+}
+
+/* Card, sidebar, and chart transitions */
+.glass, .soft-shadow, .sidebar, .tool-card, .category-chart {
+  transition: var(--transition);
+}
+
+/* For dark mode text and backgrounds */
+.dark .glass {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  color: #f1f5f9;
+}
+
+.dark .soft-shadow {
+  box-shadow: var(--soft-shadow) !important;
+}
+
+/* Misc */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e0e7ef;
+  border-radius: 8px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
